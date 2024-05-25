@@ -16,8 +16,9 @@
 
     <ImageView
         android:id="@+id/img_forecast_type"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:scaleType="centerCrop"
         tools:src="@drawable/baseline_wb_sunny_24" />
 
     <TextView

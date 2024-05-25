@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("kapt")
 }
 
 android {
@@ -62,12 +63,16 @@ dependencies {
     implementation(libs.androidx.cardview)
     implementation(libs.androidx.recyclerview)
     implementation(libs.com.squareup.retrofit2)
-    testImplementation(libs.junit)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.com.squareup.retrofit2.converter)
+    implementation(libs.com.squareup.okhttp3)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
 }
