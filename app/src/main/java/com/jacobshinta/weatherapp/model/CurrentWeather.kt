@@ -49,7 +49,17 @@ data class ForecastDay(
     val date: String,
     val date_epoch: Long,
     val day: Day,
-    val hour: List<Hour>
+    val hour: List<Hour>,
+    val astro: Astro
+)
+
+data class Astro(
+    val sunrise: String,
+    val sunset: String,
+    val moonrise: String,
+    val moonset: String,
+    val moon_phase: String,
+    val moon_illumination: Int,
 )
 
 data class Day(

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MoonPhaseFragment">
+
+    <ImageView
+        android:id="@+id/phase_image"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_gravity="center"
+        android:src="@drawable/baseline_shield_moon_24"
+        tools:srcCompat="@drawable/baseline_shield_moon_24" />
+
+    <TextView
+        android:id="@+id/phase_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Full Moon" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        tools:text="date" />
+
+    <TextView
+        android:id="@+id/moonrise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        tools:text="Moonrise: 6:30 PM" />
+
+    <TextView
+        android:id="@+id/moonset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        tools:text="Moonset: 6:30 AM" />
+
+    <TextView
+        android:id="@+id/illumination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        tools:text="Illumination: 100%" />
+
+</LinearLayout>

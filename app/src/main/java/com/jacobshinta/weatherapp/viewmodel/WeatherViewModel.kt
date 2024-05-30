@@ -17,6 +17,9 @@ class WeatherViewModel : ViewModel() {
     private val _weatherData = MutableLiveData<WeatherResponse>()
     val weatherData: LiveData<WeatherResponse> = _weatherData
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> get() = _isLoading
+
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://api.weatherapi.com/v1/")
         .addConverterFactory(GsonConverterFactory.create())
@@ -25,6 +28,7 @@ class WeatherViewModel : ViewModel() {
     private val service: WeatherInterface = retrofit.create(WeatherInterface::class.java)
 
     fun fetchWeatherData(query: String, apiKey: String, days: Int = 10) {
+        _isLoading.value = true
         viewModelScope.launch {
             try {
                 val response = withContext(Dispatchers.IO) {
@@ -35,7 +39,10 @@ class WeatherViewModel : ViewModel() {
                 } else {
                 }
             } catch (e: Exception) {
+            } finally {
+                _isLoading.value = false
             }
         }
     }
 }
+

@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jacobshinta.weatherapp.model.Hour
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class HourlyWeatherAdapter(private val hourlyForecasts: List<Hour>) :
     RecyclerView.Adapter<HourlyWeatherAdapter.HourlyViewHolder>() {
@@ -25,7 +27,10 @@ class HourlyWeatherAdapter(private val hourlyForecasts: List<Hour>) :
 
     override fun onBindViewHolder(holder: HourlyViewHolder, position: Int) {
         val forecast = hourlyForecasts[position]
-        holder.time.text = forecast.time.substring(11, 16)
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+        val displayFormat = SimpleDateFormat("h a", Locale.getDefault())
+        val hourTime = dateFormat.parse(forecast.time)
+        holder.time.text = hourTime?.let { displayFormat.format(it) } ?: ""
         holder.temp.text = "${forecast.temp_f.toInt()}°F"
         Glide.with(holder.itemView.context)
             .load(forecast.condition.fixIcon)
