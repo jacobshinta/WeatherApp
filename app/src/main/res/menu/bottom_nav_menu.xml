@@ -6,7 +6,6 @@
         android:title="Weather" />
     <item
         android:id="@+id/moonPhaseFragment"
-        android:tint="@color/black"
-        android:icon="@drawable/basic_moon_ui_svgrepo_com"
+        android:icon="@drawable/basic_moon"
         android:title="Moon Phase" />
 </menu>

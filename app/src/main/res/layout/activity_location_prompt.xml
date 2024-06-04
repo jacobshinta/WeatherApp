@@ -1,17 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/default_gradient">
+
+    <ImageView
+        android:id="@+id/prompt_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/sun_icon"
+        android:transitionName="logoTransition" />
+
+    <TextView
+        android:id="@+id/prompt_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/prompt_logo"
+        android:layout_centerHorizontal="true"
+        android:text="Jake's Weather App"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:transitionName="appNameTransition" />
 
     <EditText
-        android:id="@+id/etLocation"
+        android:id="@+id/et_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your City or Zip"
         android:imeOptions="actionDone"
         android:inputType="text"
-        android:padding="16dp" />
-</LinearLayout>
+        android:padding="16dp"
+        android:layout_below="@id/prompt_name"
+        android:layout_marginTop="50dp"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"/>
+</RelativeLayout>

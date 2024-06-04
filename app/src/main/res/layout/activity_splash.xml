@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="@drawable/default_gradient"
+    android:gravity="center">
 
-    <FrameLayout
+    <ImageView
+        android:id="@+id/splash_logo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/weather_icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/clouds_37009_1280" />
-    </FrameLayout>
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/sun_icon"
+        android:transitionName="logoTransition" />
 
     <TextView
+        android:id="@+id/splash_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weather App"
-        android:textSize="24dp"
-        android:layout_marginTop="16dp"/>
-</LinearLayout>
+        android:layout_below="@id/splash_logo"
+        android:text="Jake's Weather App"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:transitionName="appNameTransition"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

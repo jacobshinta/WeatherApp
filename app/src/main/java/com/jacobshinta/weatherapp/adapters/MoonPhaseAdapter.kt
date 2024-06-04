@@ -29,9 +29,9 @@ class MoonPhaseAdapter(private var moonPhases: List<ForecastDay>) : RecyclerView
         holder.phaseImage.setImageResource(MoonPhaseUtils.getMoonPhaseImage(moonPhase.astro.moon_phase))
         holder.phaseName.text = moonPhase.astro.moon_phase
         holder.date.text = moonPhase.date
-        holder.moonrise.text = "Moonrise: ${moonPhase.astro.moonrise}"
-        holder.moonset.text = "Moonset: ${moonPhase.astro.moonset}"
-        holder.illumination.text = "Illumination: ${moonPhase.astro.moon_illumination}%"
+        holder.moonrise.text = moonPhase.astro.moonrise
+        holder.moonset.text = moonPhase.astro.moonset
+        holder.illumination.text = "${moonPhase.astro.moon_illumination}%"
     }
 
     override fun getItemCount(): Int = moonPhases.size

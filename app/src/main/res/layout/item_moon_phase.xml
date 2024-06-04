@@ -5,15 +5,16 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".MoonPhaseFragment">
+    tools:context=".MoonPhaseFragment"
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/phase_image"
-        android:layout_width="240dp"
-        android:layout_height="240dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_gravity="center"
         android:src="@drawable/baseline_shield_moon_24"
-        tools:srcCompat="@drawable/baseline_shield_moon_24" />
+        tools:srcCompat="@drawable/full_moon" />
 
     <TextView
         android:id="@+id/phase_name"
@@ -22,6 +23,7 @@
         android:layout_gravity="center"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         tools:text="Full Moon" />
 
     <TextView
@@ -31,28 +33,89 @@
         android:layout_marginTop="4dp"
         android:layout_gravity="center"
         android:textSize="16sp"
+        android:textColor="@color/white"
         android:textStyle="italic"
         tools:text="date" />
 
-    <TextView
-        android:id="@+id/moonrise"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        tools:text="Moonrise: 6:30 PM" />
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
 
-    <TextView
-        android:id="@+id/moonset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        tools:text="Moonset: 6:30 AM" />
+        <TextView
+            android:id="@+id/moonrise_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Moonrise:"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="start" />
 
-    <TextView
-        android:id="@+id/illumination"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/moonrise"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="end"
+            tools:text="6:30 PM" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        tools:text="Illumination: 100%" />
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp">
+
+        <TextView
+            android:id="@+id/moonset_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Moonset:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="start" />
+
+        <TextView
+            android:id="@+id/moonset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="end"
+            tools:text="6:30 AM" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp">
+
+        <TextView
+            android:id="@+id/illumination_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Illumination:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="start" />
+
+        <TextView
+            android:id="@+id/illumination"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="end"
+            tools:text="100%" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,5 +1,8 @@
 package com.jacobshinta.weatherapp
 
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.RelativeSizeSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +33,19 @@ class HourlyWeatherAdapter(private val hourlyForecasts: List<Hour>) :
         val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
         val displayFormat = SimpleDateFormat("h a", Locale.getDefault())
         val hourTime = dateFormat.parse(forecast.time)
-        holder.time.text = hourTime?.let { displayFormat.format(it) } ?: ""
+        val timeText = hourTime?.let { displayFormat.format(it) } ?: ""
+        val spannableTime = SpannableString(timeText)
+        val amPmStart = timeText.indexOf(" ")
+        if (amPmStart != -1) {
+            spannableTime.setSpan(
+                RelativeSizeSpan(0.8f),
+                amPmStart,
+                timeText.length,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+        }
+
+        holder.time.text = spannableTime
         holder.temp.text = "${forecast.temp_f.toInt()}°F"
         Glide.with(holder.itemView.context)
             .load(forecast.condition.fixIcon)

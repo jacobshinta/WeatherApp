@@ -4,10 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.transition.TransitionManager
+import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewGroup
 
 class LocationPromptActivity : AppCompatActivity() {
 
@@ -15,10 +18,16 @@ class LocationPromptActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location_prompt)
 
-        val locationEditText = findViewById<EditText>(R.id.etLocation)
+        val locationEditText = findViewById<EditText>(R.id.et_location)
+        val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+
+        locationEditText.postDelayed({
+            locationEditText.visibility = ViewGroup.VISIBLE
+            locationEditText.startAnimation(fadeIn)
+        }, 1000)
+
         setupLocationEditText(locationEditText)
     }
-
     private fun setupLocationEditText(locationEditText: EditText) {
         locationEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {

@@ -5,17 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    tools:background="@drawable/rainy_gradient">
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
     <LinearLayout
-        android:id="@+id/weatherLayout"
+        android:id="@+id/weather_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -35,14 +36,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Enter location"
+                android:textColorHint="@color/white"
                 android:imeOptions="actionDone"
                 android:inputType="text"
                 android:textAlignment="center"
                 android:textSize="30sp"
+                android:textColor="@color/white"
                 android:layout_marginStart="24dp" />
 
             <ImageView
-                android:id="@+id/imageView"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 app:tint="@android:color/white"
@@ -58,6 +60,7 @@
             android:gravity="center">
 
             <TextView
+                style="@style/defaultText"
                 android:id="@+id/tv_current_temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,13 +68,16 @@
                 android:textSize="18dp" />
 
             <TextView
+
                 android:id="@+id/tv_divider"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" | "
+                android:textColor="@color/white"
                 android:textSize="18dp" />
 
             <TextView
+                style="@style/defaultText"
                 android:id="@+id/tv_current_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,14 +92,32 @@
             android:layout_margin="16dp"
             app:cardCornerRadius="16dp"
             android:padding="8dp"
-            app:cardBackgroundColor="#999999">
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#50999999">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:padding="8dp"
-                android:text="Hourly Forecast"
-                android:textSize="10dp" />
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="5dp"
+                    android:layout_marginEnd="4dp"
+                    android:alpha="0.6"
+                    android:src="@drawable/clock"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hourly Forecast"
+                    android:textSize="10sp"
+                    android:textColor="#60ffffff"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_hourly"
@@ -112,19 +136,37 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="64dp"
             app:cardCornerRadius="16dp"
-            app:cardBackgroundColor="#999999">
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#50999999">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:padding="8dp"
-                    android:text="Daily Forecast"
-                    android:textSize="10dp" />
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginEnd="4dp"
+                        android:alpha="0.6"
+                        android:src="@drawable/calendar"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Daily Forecast"
+                        android:textSize="10sp"
+                        android:textColor="#60ffffff"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_daily"
@@ -137,6 +179,7 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 
 </LinearLayout>

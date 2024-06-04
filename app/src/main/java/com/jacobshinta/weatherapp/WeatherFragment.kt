@@ -53,8 +53,8 @@ class WeatherFragment : Fragment() {
 
     private fun initializeViews(view: View) {
         locationEditText = view.findViewById(R.id.et_location)
-        progressBar = view.findViewById(R.id.progressBar)
-        weatherLayout = view.findViewById(R.id.weatherLayout)
+        progressBar = view.findViewById(R.id.progress_bar)
+        weatherLayout = view.findViewById(R.id.weather_layout)
     }
 
     private fun setupRecyclerViews(view: View) {
@@ -81,6 +81,7 @@ class WeatherFragment : Fragment() {
             weatherResponse?.let {
                 setupRecyclerViewsWithData(it)
                 displayWeatherData(it)
+                updateBackground(it.current.condition.text)
             }
         })
     }
@@ -159,6 +160,16 @@ class WeatherFragment : Fragment() {
         view?.findViewById<TextView>(R.id.et_location)?.text = location.name
         view?.findViewById<TextView>(R.id.tv_current_temp)?.text = "${currentTemp.toInt()}°F"
         view?.findViewById<TextView>(R.id.tv_current_type)?.text = condition.text
+    }
+
+    private fun updateBackground(condition: String) {
+        val backgroundRes = when {
+            condition.contains("sunny", true) -> R.drawable.sunny_gradient
+            condition.contains("cloudy", true) || condition.contains("overcast", true) -> R.drawable.cloudy_gradient
+            condition.contains("rain", true) -> R.drawable.rainy_gradient
+            else -> R.drawable.default_gradient
+        }
+        view?.findViewById<View>(R.id.weather_layout)?.setBackgroundResource(backgroundRes)
     }
 
     private fun hideKeyboard(editText: EditText) {
